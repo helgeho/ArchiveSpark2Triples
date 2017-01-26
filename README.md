@@ -5,7 +5,7 @@ This library provides tools to convert [ArchiveSpark](https://github.com/helgeho
 To build a JAR file of this project, clone the repository and call `sbt assembly` (this requires [SBT](http://www.scala-sbt.org/)).
 The JAR file needs to be added to your classpath together with ArchiveSpark. To run it on a cluster please add it to both [Spark](http://spark.apache.org/) parameters `--driver-class-path` and `--jars`.
 
-An example on how to use it is provided as [Jupyter](http://jupyter.org/) notebook: [**here**](notebooks/triples.ipynb)  
+An example on how to use it is provided as [Jupyter](http://jupyter.org/) notebook: [**here**](notebooks/Triples.ipynb)  
 The example requires [FEL4ArchiveSpark](https://github.com/helgeho/FEL4ArchiveSpark) to be on your classpath for entity recognition.
 
 ### License
