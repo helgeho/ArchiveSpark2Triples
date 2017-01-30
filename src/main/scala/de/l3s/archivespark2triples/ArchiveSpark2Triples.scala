@@ -99,7 +99,9 @@ object ArchiveSpark2Triples {
   def toStringsSorted(header: TripleHeader, triples1: RDD[TripleDoc], triples2: RDD[TripleDoc]*) = {
     var union = triples1
     for (triples <- triples2) union = union.union(triples)
-    val sorted = union.map(doc => (doc.key, doc.toString)).persist(StorageLevel.DISK_ONLY_2).sortByKey().values
+    val strings = union.map(doc => (doc.key, doc.toString))
+    strings.checkpoint()
+    val sorted = strings.sortByKey().values
     sorted.mapPartitions(strs => Iterator(header.toString) ++ strs)
   }
 
