@@ -101,6 +101,7 @@ object ArchiveSpark2Triples {
     for (triples <- triples2) union = union.union(triples)
     val strings = union.map(doc => (doc.key, doc.toString))
     strings.checkpoint()
+    strings.foreachPartition(_ => {}) // materialize checkpoint
     val sorted = strings.sortByKey().values
     sorted.mapPartitions(strs => Iterator(header.toString) ++ strs)
   }
