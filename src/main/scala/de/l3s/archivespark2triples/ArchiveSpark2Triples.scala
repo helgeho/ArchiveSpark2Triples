@@ -30,7 +30,6 @@ import java.time.format.DateTimeFormatter
 import de.l3s.archivespark.enrich.TypedEnrichable
 import de.l3s.archivespark.specific.warc.CdxRecord
 import org.apache.spark.rdd.RDD
-import org.apache.spark.storage.StorageLevel
 
 import scala.reflect.ClassTag
 
